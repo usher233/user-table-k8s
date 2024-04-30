@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-table-service
+spec:
+  type: Nodeport
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+      nodePort: 30008
+  selector:
+    app: user-table-frontend
