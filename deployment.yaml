@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-table-deployment
+  labels:
+    app: user-table-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-table-frontend
+  template:
+    metadata:
+      labels:
+        app: user-table-frontend
+    spec:
+      containers:
+      - name: user-table-frontend
+        image: viktorwu/user-table-frontend:0.0.1
+        ports:
+        - containerPort: 80
